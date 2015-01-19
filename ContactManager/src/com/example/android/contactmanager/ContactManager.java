@@ -28,14 +28,28 @@ import android.widget.Button;
 
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
+import com.schlik.pubmate.pubmodelendpoint.*;
+
+
 
 public final class ContactManager extends Activity
 {
 
     public static final String TAG = "ContactManager";
+    
+    //public static final String WEB_CLIENT_ID = "177171809719.apps.googleusercontent.com";
+    //public static final String ANDROID_CLIENT_ID = "177171809719-AIzaSyB7D5zRIw2VE4bHVkBVWLoBc_JuJt9bFx4.apps.googleusercontent.com";
+    //public static final String ANDROID_AUDIENCE = WEB_CLIENT_ID;
+    
+
+    public static final String AUDIENCE = "server:client_id:177171809719-AIzaSyB7D5zRIw2VE4bHVkBVWLoBc_JuJt9bFx4.apps.googleusercontent.com";
+    public static final String DEFAULT_ROOT_URL = "https://pubchum.appspot.com/_ah/api/";
+
+
 
     private Button mAddAccountButton, mShowPubsButton;
     private ListView mPubList;
+ 
 //    private boolean mShowInvisible;
 //    private CheckBox mShowInvisibleControl;
 
@@ -76,14 +90,23 @@ public final class ContactManager extends Activity
      * Populate the contact list based on account currently selected in the account spinner.
      */
     private void populatePubList() {
-        // Build adapter with contact entries
-        Cursor cursor = getContacts();
-        String[] fields = new String[] {
-                ContactsContract.Data.DISPLAY_NAME
-        };
-        SimpleCursorAdapter adapter = new SimpleCursorAdapter(this, R.layout.contact_entry, cursor,
-                fields, new int[] {R.id.contactEntryText});
-        mPubList.setAdapter(adapter);
+    	PubModel reponse = null;
+    	private static PubModelEndpoint = 
+    			
+	    Quote response = null;
+		    try {
+		    	Quoteendpoint.Builder builder = new Quoteendpoint.Builder(AndroidHttp.newCompatibleTransport(), new GsonFactory(), credential);
+				Quoteendpoint service =  builder.build();
+				Quote quote = new Quote();
+				quote.setAuthor(params[0]);
+				quote.setMessage(params[1]);
+				response = service.insertQuote(quote).execute();
+				Log.d("Response from call", response.getMessage());
+		    } catch (Exception e) {
+		      Log.d("Could not Add Quote", e.getMessage(), e);
+		    }
+		    return response;
+		  }
     }
 
     /**
