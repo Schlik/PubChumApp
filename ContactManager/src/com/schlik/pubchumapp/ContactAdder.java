@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.android.contactmanager;
+package com.schlik.pubchumapp;
 
 import android.accounts.Account;
 import android.accounts.AccountManager;
@@ -43,6 +43,8 @@ import android.widget.AdapterView.OnItemSelectedListener;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+
+import com.example.android.contactmanager.R;
 
 public final class ContactAdder extends Activity implements OnAccountsUpdateListener
 {

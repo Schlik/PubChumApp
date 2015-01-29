@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-package com.example.android.contactmanager;
+package com.schlik.pubchumapp;
 
 import android.app.Activity;
-
+import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
@@ -25,14 +25,16 @@ import android.provider.ContactsContract;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-
 import android.widget.ListView;
+import android.widget.SimpleAdapter;
 import android.widget.SimpleCursorAdapter;
+
+import com.example.android.contactmanager.R;
 import com.schlik.pubmate.pubmodelendpoint.*;
 
 
 
-public final class ContactManager extends Activity
+public final class PubChumMainActivity extends Activity
 {
 
     public static final String TAG = "ContactManager";
@@ -79,7 +81,7 @@ public final class ContactManager extends Activity
         
         mShowPubsButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Log.d(TAG, "mAddAccountButton clicked");
+                Log.d(TAG, "mShowPubsButton clicked");
                 populatePubList();
             }
         });
@@ -90,23 +92,7 @@ public final class ContactManager extends Activity
      * Populate the contact list based on account currently selected in the account spinner.
      */
     private void populatePubList() {
-    	PubModel reponse = null;
-    	private static PubModelEndpoint = 
-    			
-	    Quote response = null;
-		    try {
-		    	Quoteendpoint.Builder builder = new Quoteendpoint.Builder(AndroidHttp.newCompatibleTransport(), new GsonFactory(), credential);
-				Quoteendpoint service =  builder.build();
-				Quote quote = new Quote();
-				quote.setAuthor(params[0]);
-				quote.setMessage(params[1]);
-				response = service.insertQuote(quote).execute();
-				Log.d("Response from call", response.getMessage());
-		    } catch (Exception e) {
-		      Log.d("Could not Add Quote", e.getMessage(), e);
-		    }
-		    return response;
-		  }
+       new PubMateDBAsyncTask(this, mPubList).execute();
     }
 
     /**

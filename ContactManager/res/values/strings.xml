@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2009 The Android Open Source Project
+<!--
+     Copyright (C) 2009 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -15,6 +16,7 @@
 -->
 
 <resources>
+
     <string name="accountSpinnerLabel">Account</string>
     <string name="addContactButtonLabel">Add Pub</string>
     <string name="showListButtonLabel">Show Pubs</string>
@@ -31,4 +33,8 @@
     <string name="showInvisible">Show Invisible Contacts (Only)</string>
     <string name="targetAccountLabel">Target Account</string>
     <string name="undefinedTypeLabel">(Undefined)</string>
+    <string name="hello_world">Hello World!</string>
+    <string name="title_activity_list_pubs">ListPubsActivity</string>
+    <string name="action_settings">Settings</string>
+
 </resources>

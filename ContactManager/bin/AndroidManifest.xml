@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2009 The Android Open Source Project
+<!--
+     Copyright (C) 2009 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -16,22 +17,40 @@
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.android.contactmanager"
-    android:versionCode="1" android:versionName="1.0">
+    android:versionCode="1"
+    android:versionName="1.0" >
 
-    <uses-sdk android:minSdkVersion="5" android:targetSdkVersion="5" />
+    <uses-sdk
+        android:minSdkVersion="15"
+        android:targetSdkVersion="15" />
+
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
-    <uses-permission android:name="android.permission.USE_CREDENTIALS"/>
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    
 
-    <application android:label="@string/app_name" android:icon="@drawable/icon">
-        <activity android:name=".ContactManager" android:label="@string/app_name">
+    <application
+        android:icon="@drawable/icon"
+        android:label="@string/app_name" >
+        <activity
+            android:name="com.schlik.pubchumapp.PubChumMainActivity"
+            android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="ContactAdder" android:label="@string/addContactTitle">
+        <activity
+            android:name=".ContactAdder"
+            android:label="@string/addContactTitle" >
+        </activity>
+        <activity
+            android:name="com.schlik.pubchumapp.ListPubsActivity"
+            android:label="@string/title_activity_list_pubs" >
         </activity>
     </application>
+
 </manifest>
